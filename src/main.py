@@ -20,11 +20,12 @@ def on_turnout_message(client, userdata, msg):
     try:
         toid = int( msg.topic[len(MQTT_TURNOUTS_TOPIC)-1::] )
         print("turnout id : "+str(toid))
-        if (msg.payload=="THROWN"):
+        todo = msg.payload.decode('utf-8')
+        if (todo=="THROWN"):
             servo.setAccel(toid, SERVO_ACC)
             servo.setTarget(toid,SERVO_POS_THROWN)
             print("  ...throwing")
-        elif  (msg.payload=="CLOSED"):
+        elif  (todo=="CLOSED"):
             servo.setAccel(toid, SERVO_ACC)
             servo.setTarget(toid,SERVO_POS_CLOSED)
             print("  ...closing")
@@ -33,7 +34,7 @@ def on_turnout_message(client, userdata, msg):
     except:
         print("Invalid turnout command :")
         print("  topic :"+ str(msg.topic))
-        print("  msg :"+ str(msg.payload))
+        print("  msg :"+ str(todo) +"(" +str(msg.payload) +")")
         return
 
 
