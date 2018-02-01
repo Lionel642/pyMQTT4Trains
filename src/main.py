@@ -1,5 +1,6 @@
 
-# pip install paho-mqtt pySerial
+# pip install paho-mqtt
+# pip install pySerial
 # pip install sqlalchemy
 
 import paho.mqtt.client as mqtt
