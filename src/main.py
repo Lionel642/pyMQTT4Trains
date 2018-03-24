@@ -1,7 +1,8 @@
 
-# pip install paho-mqtt
-# pip install pySerial
-# pip install sqlalchemy
+# pip3 install paho-mqtt
+# pip3 install pySerial
+# pip3 install sqlalchemy
+# pip3 install pymysql
 
 import paho.mqtt.client as mqtt
 import socket
@@ -28,7 +29,7 @@ maestros = {}
 session = Session()
 
 for m in session.query(DB.Controler).join(DB.Host).filter( DB.Host.name==socket.gethostname() ):
-    print m.name
+    print(m.name)
     maestros[m.id] = Mastreo.Controller( m.tty, m.device )
     print("Openning servo connection...")
     for i in range(0,12):
