@@ -1,7 +1,5 @@
 import traceback
 
-import DB
-
 MQTT_TOPIC="/trains/track/turnout/#"
 
 # The callback for when a turnout message is received
