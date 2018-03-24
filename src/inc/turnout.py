@@ -23,4 +23,4 @@ def on_message(client, userdata, msg):
         else:
             raise Exception('Invalid turnout command, topic : '+ str(msg.topic)+', msg : '+ str(todo) +'(' +str(msg.payload) +')')
     except Exception as ex:
-        print ex
+        print(ex)
