@@ -2,6 +2,8 @@ from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
+CONNSTRING='mysql+pymysql://trains:4Trains@leontu/trains_servos'
+
 Base = declarative_base()
 
 class Host(Base):

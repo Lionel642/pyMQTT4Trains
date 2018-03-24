@@ -20,7 +20,7 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe(servocfg.MQTT_TOPIC)
 
 # init DB
-Engine = create_engine('sqlite:///pyMQTT4Trains.db')
+Engine = create_engine(DB.CONNSTRING)
 Session = sessionmaker(bind=Engine)
 
 # init maestro(s)

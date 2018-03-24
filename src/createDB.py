@@ -2,7 +2,8 @@ import os
 import sys
 from sqlalchemy import create_engine
 
-from lib import DB
+from inc import DB
 
-engine = create_engine('sqlite:///pyMQTT4Trains.db')
+# was 'sqlite:///pyMQTT4Trains.db'
+engine = create_engine(DB.CONNSTRING)
 DB.Base.metadata.create_all(engine)
