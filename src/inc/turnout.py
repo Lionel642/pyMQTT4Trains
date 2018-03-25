@@ -2,6 +2,8 @@ import traceback
 
 MQTT_TOPIC="/trains/track/turnout/#"
 
+import DB
+
 # The callback for when a turnout message is received
 def on_message(client, userdata, msg):
     try:
