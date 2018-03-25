@@ -1,5 +1,4 @@
 import traceback
-
 from . import DB
 
 MQTT_TOPIC="/trains/track/turnout/#"

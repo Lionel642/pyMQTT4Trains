@@ -10,7 +10,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from lib import maestro as Mastreo
 from inc import turnout
-from inc import servocfg
 from inc import DB
 
 # The callback for when the client receives a CONNACK response from the server.
@@ -18,7 +17,6 @@ def on_connect(client, userdata, flags, rc):
     print("Connected to MQTT bus with result code "+str(rc))
     # Subscribing in on_connect() means that if we lose the connection and reconnect then subscriptions will be renewed.
     client.subscribe(turnout.MQTT_TOPIC)
-    client.subscribe(servocfg.MQTT_TOPIC)
 
 # init DB
 Engine = create_engine(DB.CONNSTRING)
@@ -47,7 +45,6 @@ turnout.maestros = maestros
 client = mqtt.Client()
 client.on_connect = on_connect
 client.message_callback_add( turnout.MQTT_TOPIC, turnout.on_message )
-client.message_callback_add( servocfg.MQTT_TOPIC, servocfg.on_message )
 client.connect("leontu.local", 1883, 60)
 
 # Blocking call that processes network traffic, dispatches callbacks and
