@@ -45,7 +45,7 @@ turnout.maestros = maestros
 client = mqtt.Client()
 client.on_connect = on_connect
 client.message_callback_add( turnout.MQTT_TOPIC, turnout.on_message )
-client.connect("leontu.local", 1883, 60)
+client.connect("leontu", 1883, 60)
 
 # Blocking call that processes network traffic, dispatches callbacks and
 # handles reconnecting.
