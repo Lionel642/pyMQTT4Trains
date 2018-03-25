@@ -27,7 +27,7 @@ print("Servo limits "+str(min)+" - "+str(max))
 pos = maestro.getPosition(args.servo)
 print("Curent position "+str(pos))
 
-print("Setting acceleration to "+str(args.acceleration))+" ...")
+print("Setting acceleration to "+str(args.acceleration)+" ...")
 maestro.setAccel(args.servo, args.acceleration)
 
 print("Setting position to "+str(args.position)+" ...")
