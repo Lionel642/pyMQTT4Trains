@@ -20,18 +20,18 @@ print("Position : "+str(args.position))
 
 maestro = Mastreo.Controller( args.tty, args.device )
 
-min = maestro.getMin(args.s)
-max = maestro.getMax(args.s)
+min = maestro.getMin(args.servo)
+max = maestro.getMax(args.servo)
 print("Servo limits "+str(min)+" - "+str(max))
 
-pos = maestro.getPosition(args.s)
+pos = maestro.getPosition(args.servo)
 print("Curent position "+str(pos))
 
-print("Setting acceleration to "+str(args.a))
-maestro.setAccel(args.s, args.a)
+print("Setting acceleration to "+str(args.acceleration))+" ...")
+maestro.setAccel(args.servo, args.acceleration)
 
-print("Setting position to "+str(args.p))
-maestro.setTarget(args.s, args.p)
+print("Setting position to "+str(args.position)+" ...")
+maestro.setTarget(args.servo, args.position)
 
-pos = maestro.getPosition(args.s)
+pos = maestro.getPosition(args.servo)
 print("New position "+str(pos))
